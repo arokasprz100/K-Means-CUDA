@@ -97,17 +97,15 @@ __global__ void getVarianceOfGivenColumn(const float * data, unsigned input_size
     unsigned start = 2 * block * BLOCK_SIZE;
 
     // initialize the shared memory with input data (paying attention to boundary conditions)
-    if(number_of_columns * (thread + start) + column < input_size * number_of_columns) {
-        single_segment_partial_sums[thread] = powf(columns_means[column] -
-                data[number_of_columns * (thread + start) + column], 2.0);
+    if(number_of_columns * thread + start + column < input_size * number_of_columns) {
+        single_segment_partial_sums[thread] = powf(columns_means[column] - data[number_of_columns * thread + start + column], 2.0);
     } else {
         single_segment_partial_sums[thread] = 0.0f;
     }
 
     // same as above, but with the second element
-    if(number_of_columns * (thread + start + BLOCK_SIZE) + column < input_size * number_of_columns) {
-        single_segment_partial_sums[thread + BLOCK_SIZE] = powf(columns_means[column] -
-                data[number_of_columns * (thread + start + BLOCK_SIZE) + column], 2.0);
+    if(number_of_columns * (thread + BLOCK_SIZE) + start + column < input_size * number_of_columns) {
+        single_segment_partial_sums[thread + BLOCK_SIZE] = powf(columns_means[column] - data[number_of_columns * (thread + BLOCK_SIZE) + start + column], 2.0);
     } else {
         single_segment_partial_sums[thread + BLOCK_SIZE] = 0.0f;
     }
