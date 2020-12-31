@@ -1,3 +1,11 @@
+# CLion
+.idea/**
+*.iml
+*.ipr
+
+# CMake
+cmake-build-*/
+
 # Prerequisites
 *.d
 

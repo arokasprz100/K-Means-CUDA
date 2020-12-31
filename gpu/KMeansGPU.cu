@@ -2,6 +2,7 @@
 
 #include "CommonKernels.h"
 #include "../common/Utils.h"
+#include <float.h>
 
 
 std::vector<unsigned> performKMeansOnGPU(float * data_device, unsigned number_of_rows, unsigned number_of_columns,

@@ -1,5 +1,8 @@
 #include "CommandLineArgumentsParser.h"
 
+#include <exception>
+#include <stdexcept>
+
 
 CommandLineArguments CommandLineArgumentsParser::parse(int argc, char * argv[]) {
     try

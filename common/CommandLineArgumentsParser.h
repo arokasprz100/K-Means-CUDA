@@ -4,7 +4,6 @@
 #include "CommandLineArguments.h"
 
 #include <string>
-#include <exception>
 #include <iostream>
 
 

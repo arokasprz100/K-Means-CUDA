@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 project(CUDA_Data_Mining_cpp CUDA)
 
-set(CMAKE_CUDA_STANDARD 14)
+set(CMAKE_CUDA_STANDARD 11)
 
 add_executable(CUDA_Data_Mining_cpp
         main.cu

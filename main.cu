@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 
 #include "common/Dataset.h"
 #include "common/CentroidsComputation.h"
